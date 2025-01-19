@@ -2,12 +2,28 @@
 
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Newspaper, AlertCircle, Loader2 } from 'lucide-react'
+import { AlertCircle, Loader2 } from 'lucide-react'
 import { format } from 'date-fns'
 import { ka, ru } from 'date-fns/locale'
 import { useI18n } from '@/lib/i18n'
-import { NewsItem, NewsState } from '@/types/news'
 import { newsSources } from '@/config/newsSources'
+
+interface NewsItem {
+  id: string;
+  title: string;
+  description: string;
+  link: string;
+  author: string;
+  pubDate: string;
+  imageUrl?: string;
+  videoUrl?: string;
+}
+
+interface NewsState {
+  items: NewsItem[];
+  isLoading: boolean;
+  error: string | null;
+}
 
 interface NewsFeedProps {
   className?: string;
@@ -25,31 +41,18 @@ export function NewsFeed({ className }: NewsFeedProps) {
     try {
       setNewsState(prev => ({ ...prev, isLoading: true, error: null }))
       const response = await fetch(`/api/news?url=${encodeURIComponent(sourceUrl)}`)
-      
-      if (!response.ok) {
-        throw new Error('Failed to fetch news')
-      }
+      if (!response.ok) throw new Error('Failed to fetch news')
 
       const data = await response.json()
-      setNewsState({
-        items: data,
-        isLoading: false,
-        error: null,
-      })
-    } catch (error) {
-      setNewsState({
-        items: [],
-        isLoading: false,
-        error: 'Failed to load news. Please try again later.',
-      })
+      setNewsState({ items: data, isLoading: false, error: null })
+    } catch {
+      setNewsState({ items: [], isLoading: false, error: 'Failed to load news. Please try again later.' })
     }
   }
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString)
-    return format(date, 'PPp', {
-      locale: locale === 'ka' ? ka : locale === 'ru' ? ru : undefined
-    })
+    return format(date, 'PPp', { locale: locale === 'ka' ? ka : locale === 'ru' ? ru : undefined })
   }
 
   const decodeHtmlEntities = (text: string) => {
@@ -58,9 +61,7 @@ export function NewsFeed({ className }: NewsFeedProps) {
     return textArea.value
   }
 
-  const stripHtmlTags = (html: string) => {
-    return html.replace(/<\/?[^>]+(>|$)/g, "")
-  }
+  const stripHtmlTags = (html: string) => html.replace(/<\/?[^>]+(>|$)/g, '')
 
   const currentSource = newsSources.find(source => source.language === locale) || newsSources[0]
 
@@ -85,7 +86,11 @@ export function NewsFeed({ className }: NewsFeedProps) {
     <Card className={className}>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
-          <Newspaper className="h-5 w-5 text-primary" />
+          <img
+            src="https://civil.ge/wp-content/uploads/2021/05/cropped-adapted-no-square-32x32.png"
+            alt="Civil.ge"
+            className="h-5 w-5"
+          />
           Civil.ge
         </CardTitle>
       </CardHeader>
@@ -96,27 +101,64 @@ export function NewsFeed({ className }: NewsFeedProps) {
           </div>
         ) : (
           <div className="space-y-6">
-            {newsState.items.slice(0, 5).map((item) => (
-              <article key={item.id} className="space-y-2">
-                <h3 className="font-semibold hover:text-primary">
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {decodeHtmlEntities(item.title)}
-                  </a>
-                </h3>
-                {item.imageUrl && (
-                  <img 
-                    src={item.imageUrl} 
-                    alt={decodeHtmlEntities(item.title)}
-                    className="w-full h-48 object-cover rounded-md"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none'
-                    }}
-                  />
-                )}
-                <p className="text-sm text-muted-foreground line-clamp-3">
-                  {decodeHtmlEntities(stripHtmlTags(item.description))}
-                </p>
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
+            {newsState.items.slice(0, 5).map(item => (
+              <article 
+                key={item.id} 
+                className={`group hover:bg-muted/50 rounded-lg transition-colors p-3 -mx-3 ${
+                  item.imageUrl || item.videoUrl ? 'md:grid md:grid-cols-3 md:gap-4' : ''
+                }`}
+              >
+                {/* Обёртка для кликабельного контента */}
+                <a 
+                  href={item.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className={`contents cursor-pointer ${
+                    item.imageUrl || item.videoUrl ? 'md:col-span-3' : ''
+                  }`}
+                >
+                  {/* Media section */}
+                  {(item.videoUrl || item.imageUrl) && (
+                    <div className="md:col-span-1 mb-4 md:mb-0">
+                      {item.videoUrl ? (
+                        <div className="relative aspect-video rounded-lg overflow-hidden">
+                          <video
+                            className="absolute inset-0 w-full h-full object-cover"
+                          >
+                            <source src={item.videoUrl} type="video/mp4" />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
+                      ) : item.imageUrl && (
+                        <div className="relative aspect-video rounded-lg overflow-hidden">
+                          <img
+                            src={item.imageUrl}
+                            alt={decodeHtmlEntities(item.title)}
+                            className="absolute inset-0 w-full h-full object-cover"
+                            onError={e => {
+                              e.currentTarget.style.display = 'none'
+                            }}
+                          />
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  
+                  {/* Content section */}
+                  <div className={`${item.imageUrl || item.videoUrl ? 'md:col-span-2' : ''} space-y-2`}>
+                    <h3 className="font-semibold group-hover:text-primary transition-colors">
+                      {decodeHtmlEntities(item.title)}
+                    </h3>
+                    <p className="text-sm text-muted-foreground line-clamp-3">
+                      {decodeHtmlEntities(stripHtmlTags(item.description))}
+                    </p>
+                  </div>
+                </a>
+
+                {/* Metadata section (не кликабельная) */}
+                <div className={`${
+                  item.imageUrl || item.videoUrl ? 'md:col-span-3' : ''
+                } flex items-center justify-between text-xs text-muted-foreground mt-2`}>
                   <span>{item.author}</span>
                   <time dateTime={item.pubDate}>{formatDate(item.pubDate)}</time>
                 </div>
@@ -128,4 +170,3 @@ export function NewsFeed({ className }: NewsFeedProps) {
     </Card>
   )
 }
-

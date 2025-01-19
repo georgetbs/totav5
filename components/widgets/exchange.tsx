@@ -1,15 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { DollarSign, RefreshCw, ArrowRight, ArrowUp, ArrowDown } from 'lucide-react'
+import { DollarSign, RefreshCw, ArrowRight, ArrowUp, ArrowDown, Equal } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar'
 import { useI18n } from '@/lib/i18n'
 import { translate } from '@/lib/i18nUtils'
 import { useRouter } from 'next/navigation'
-// Remove this import as we'll fetch directly from the API route
-// import { fetchExchangeRates } from '@/lib/api'
 
 interface Currency {
   code: string;
@@ -84,6 +82,22 @@ export function ExchangeWidget() {
 
   const displayRates = rates.filter(rate => DISPLAY_CURRENCIES.includes(rate.code))
 
+  const getRateIcon = (diff: number) => {
+    if (diff > 0) {
+      return <ArrowUp className="h-4 w-4" />
+    }
+    if (diff < 0) {
+      return <ArrowDown className="h-4 w-4" />
+    }
+    return <Equal className="h-4 w-4" />
+  }
+
+  const getRateColor = (diff: number) => {
+    if (diff > 0) return 'text-green-600'
+    if (diff < 0) return 'text-red-600'
+    return 'text-gray-400'
+  }
+
   return (
     <Card>
       <CardHeader>
@@ -116,11 +130,9 @@ export function ExchangeWidget() {
                       : `${rate.rateFormated} GEL`
                     }
                   </span>
-                  {rate.diff !== 0 && (
-                    <span className={`text-sm ${rate.diff > 0 ? 'text-green-600' : 'text-red-600'}`}>
-                      {rate.diff > 0 ? <ArrowUp className="h-4 w-4" /> : <ArrowDown className="h-4 w-4" />}
-                    </span>
-                  )}
+                  <span className={`text-sm ${getRateColor(rate.diff)}`}>
+                    {getRateIcon(rate.diff)}
+                  </span>
                 </div>
               </li>
             ))}
@@ -137,3 +149,4 @@ export function ExchangeWidget() {
   )
 }
 
+export default ExchangeWidget;
