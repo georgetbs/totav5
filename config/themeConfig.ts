@@ -1,0 +1,33 @@
+export const themeConfig = {
+  light: {
+    primary: "hsl(142 76% 36%)",
+    primaryForeground: "hsl(0 0% 100%)",
+    secondary: "hsl(142 76% 90%)",
+    secondaryForeground: "hsl(142 76% 10%)",
+    background: "hsl(0 0% 100%)",
+    foreground: "hsl(142 76% 10%)",
+    muted: "hsl(142 10% 90%)",
+    mutedForeground: "hsl(142 10% 40%)",
+    accent: "hsl(142 40% 80%)",
+    accentForeground: "hsl(142 76% 10%)",
+    border: "hsl(142 20% 80%)",
+    input: "hsl(142 20% 80%)",
+    ring: "hsl(142 76% 36%)",
+  },
+  dark: {
+    primary: "hsl(142 76% 36%)",
+    primaryForeground: "hsl(0 0% 100%)",
+    secondary: "hsl(142 76% 20%)",
+    secondaryForeground: "hsl(142 76% 90%)",
+    background: "hsl(142 76% 5%)",
+    foreground: "hsl(142 76% 90%)",
+    muted: "hsl(142 10% 20%)",
+    mutedForeground: "hsl(142 10% 60%)",
+    accent: "hsl(142 40% 20%)",
+    accentForeground: "hsl(142 76% 90%)",
+    border: "hsl(142 20% 30%)",
+    input: "hsl(142 20% 30%)",
+    ring: "hsl(142 76% 36%)",
+  },
+}
+

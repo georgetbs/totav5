@@ -1,0 +1,29 @@
+{
+  "common": {
+    "nav": {
+      "news": "News",
+      "weather": "Weather",
+      "exchange": "Exchange",
+      "services": "Services"
+    },
+    "footer": {
+      "rights": "All rights reserved",
+      "links": {
+        "github": "GitHub",
+        "twitter": "Twitter"
+      }
+    },
+    "retry": "Try Again"
+  },
+  "exchange": {
+    "title": "Exchange Rates",
+    "loading": "Loading exchange rates...",
+    "viewAllRates": "View all rates",
+    "allRatesTitle": "All Currency Rates",
+    "currency": "Currency",
+    "rate": "Rate",
+    "change": "Change",
+    "date": "Date"
+  }
+}
+

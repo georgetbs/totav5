@@ -1,0 +1,29 @@
+{
+  "common": {
+    "nav": {
+      "news": "სიახლეები",
+      "weather": "ამინდი",
+      "exchange": "ვალუტა",
+      "services": "სერვისები"
+    },
+    "footer": {
+      "rights": "ყველა უფლება დაცულია",
+      "links": {
+        "github": "GitHub",
+        "twitter": "Twitter"
+      }
+    },
+    "retry": "ხელახლა ცდა"
+  },
+  "exchange": {
+    "title": "ვალუტის კურსები",
+    "loading": "ვალუტის კურსების ჩატვირთვა...",
+    "viewAllRates": "ყველა კურსის ნახვა",
+    "allRatesTitle": "ყველა ვალუტის კურსი",
+    "currency": "ვალუტა",
+    "rate": "კურსი",
+    "change": "ცვლილება",
+    "date": "თარიღი"
+  }
+}
+

@@ -1,0 +1,29 @@
+{
+  "common": {
+    "nav": {
+      "news": "Новости",
+      "weather": "Погода",
+      "exchange": "Обмен валют",
+      "services": "Услуги"
+    },
+    "footer": {
+      "rights": "Все права защищены",
+      "links": {
+        "github": "GitHub",
+        "twitter": "Twitter"
+      }
+    },
+    "retry": "Повторить"
+  },
+  "exchange": {
+    "title": "Курсы валют",
+    "loading": "Загрузка курсов валют...",
+    "viewAllRates": "Посмотреть все курсы",
+    "allRatesTitle": "Курсы всех валют",
+    "currency": "Валюта",
+    "rate": "Курс",
+    "change": "Изменение",
+    "date": "Дата"
+  }
+}
+
