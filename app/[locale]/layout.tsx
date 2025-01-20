@@ -4,6 +4,7 @@ import { I18nProvider } from '@/lib/i18n';
 import { Header } from '@/components/header';
 import { Footer } from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
+import Head from 'next/head';
 import { Metadata } from 'next';
 import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo';
 
@@ -57,41 +58,6 @@ const localizedDescriptions: Record<string, string> = {
   ru: 'Ваш путеводитель по Грузии: для местных жителей, экспатов, туристов и всех, кто любит эту прекрасную страну. Здесь вы найдёте всё необходимое для жизни, путешествий и знакомства с культурой Грузии - от повседневных потребностей до глубокого погружения в местные традиции'
 };
 
-export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-  const safeLocale = locale in localizedKeywords ? locale : 'en';
-  
-  const metadata = genMeta({
-    title: localizedTitles[safeLocale],
-    description: localizedDescriptions[safeLocale],
-    keywords: [...localizedKeywords[safeLocale]],
-    url: 'https://tota.ge/',
-    locale,
-  });
-
-  return {
-    ...metadata,
-    icons: {
-      icon: [
-        { url: '/favicon.ico' }, // Favicon в корне app
-        { url: '/public/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/public/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
-      ],
-      apple: [
-        { url: '/public/apple-touch-icon.png' }
-      ],
-      other: [
-        {
-          rel: 'mask-icon',
-          url: '/public/safari-pinned-tab.svg',
-          color: '#5bbad5'
-        }
-      ]
-    },
-    manifest: '/public/site.webmanifest',
-    themeColor: '#ffffff'
-  };
-}
-
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
@@ -108,6 +74,21 @@ export default function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <Head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link
+                rel="icon"
+                href="/icon?<generated>"
+                type="image/<generated>"
+                sizes="<generated>"
+              />
+          <link
+            rel="apple-touch-icon"
+            href="/apple-icon?<generated>"
+            type="image/<generated>"
+            sizes="<generated>"
+          />
+      </Head>
       <body>
         <I18nProvider initialLocale={locale}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
