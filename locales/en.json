@@ -24,6 +24,41 @@
     "rate": "Rate",
     "change": "Change",
     "date": "Date"
+  },
+  "services": {
+    "title": "Services",
+    "useful_links": "Useful Links",
+    "weather": {
+      "title": "Weather",
+      "description": "Check weather forecasts using OpenWeather API"
+    },
+    "exchange": {
+      "title": "Exchange Rates",
+      "description": "View current exchange rates from NBG"
+    },
+    "categories": {
+      "tv_channels": "TV Channels",
+      "tickets": "Tickets & Travel",
+      "real_estate": "Real Estate",
+      "stores": "Online Stores",
+      "pharmacies": "Pharmacies",
+      "jobs": "Jobs",
+      "auto": "Auto",
+      "handymen": "Handymen",
+      "school": "School",
+      "government": "Government Services",
+      "payment_services": "Payment Services",
+      "banks": "Banks",
+      "sport": "Sport",
+      "clinics": "Clinics",
+      "telecommunication": "Telecommunication",
+      "discounts": "Discounts",
+      "language_learning": "Language Learning",
+      "cryptocurrency": "Cryptocurrency",
+      "parent": "Parenting",
+      "vet_clinics": "Veterinary Clinics",
+      "forum": "Forum"
+    }
   }
 }
 

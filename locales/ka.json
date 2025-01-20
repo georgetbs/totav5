@@ -24,6 +24,41 @@
     "rate": "კურსი",
     "change": "ცვლილება",
     "date": "თარიღი"
+  },
+  "services": {
+    "title": "სერვისები",
+    "useful_links": "სასარგებლო ბმულები",
+    "weather": {
+      "title": "ამინდი",
+      "description": "შეამოწმეთ ამინდის პროგნოზი OpenWeather API-ის გამოყენებით"
+    },
+    "exchange": {
+      "title": "ვალუტის კურსები",
+      "description": "ნახეთ მიმდინარე ვალუტის კურსები NBG-დან"
+    },
+    "categories": {
+      "tv_channels": "სატელევიზიო არხები",
+      "tickets": "ბილეთები და მოგზაურობა",
+      "real_estate": "უძრავი ქონება",
+      "stores": "ონლაინ მაღაზიები",
+      "pharmacies": "აფთიაქები",
+      "jobs": "სამსახურები",
+      "auto": "ავტო",
+      "handymen": "ხელოსნები",
+      "school": "სკოლა",
+      "government": "სახელმწიფო სერვისები",
+      "payment_services": "გადახდის სერვისები",
+      "banks": "ბანკები",
+      "sport": "სპორტი",
+      "clinics": "კლინიკები",
+      "telecommunication": "ტელეკომუნიკაცია",
+      "discounts": "ფასდაკლებები",
+      "language_learning": "ენის სწავლა",
+      "cryptocurrency": "კრიპტოვალუტა",
+      "parent": "მშობლობა",
+      "vet_clinics": "ვეტერინარული კლინიკები",
+      "forum": "ფორუმი"
+    }
   }
 }
 

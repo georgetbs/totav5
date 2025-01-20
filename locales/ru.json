@@ -4,7 +4,7 @@
       "news": "Новости",
       "weather": "Погода",
       "exchange": "Обмен валют",
-      "services": "Сервисы"
+      "services": "Услуги"
     },
     "footer": {
       "rights": "Все права защищены",
@@ -24,6 +24,41 @@
     "rate": "Курс",
     "change": "Изменение",
     "date": "Дата"
+  },
+  "services": {
+    "title": "Услуги",
+    "useful_links": "Полезные ссылки",
+    "weather": {
+      "title": "Погода",
+      "description": "Проверьте прогноз погоды с помощью API OpenWeather"
+    },
+    "exchange": {
+      "title": "Курсы валют",
+      "description": "Просмотр текущих курсов валют от НБГ"
+    },
+    "categories": {
+      "tv_channels": "Телеканалы",
+      "tickets": "Билеты и путешествия",
+      "real_estate": "Недвижимость",
+      "stores": "Интернет-магазины",
+      "pharmacies": "Аптеки",
+      "jobs": "Работа",
+      "auto": "Авто",
+      "handymen": "Мастера",
+      "school": "Школа",
+      "government": "Государственные услуги",
+      "payment_services": "Платежные сервисы",
+      "banks": "Банки",
+      "sport": "Спорт",
+      "clinics": "Клиники",
+      "telecommunication": "Телекоммуникации",
+      "discounts": "Скидки",
+      "language_learning": "Изучение языков",
+      "cryptocurrency": "Криптовалюта",
+      "parent": "Родительство",
+      "vet_clinics": "Ветеринарные клиники",
+      "forum": "Форум"
+    }
   }
 }
 
