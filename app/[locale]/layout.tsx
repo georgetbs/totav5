@@ -58,13 +58,12 @@ const localizedDescriptions: Record<string, string> = {
 };
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
-  // Use the locale-specific content, fallback to English if locale not found
   const safeLocale = locale in localizedKeywords ? locale : 'en';
   
   const metadata = genMeta({
     title: localizedTitles[safeLocale],
     description: localizedDescriptions[safeLocale],
-    keywords: [...localizedKeywords[safeLocale]], // Convert readonly array to mutable
+    keywords: [...localizedKeywords[safeLocale]],
     url: 'https://tota.ge/',
     locale,
   });
@@ -73,25 +72,26 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     ...metadata,
     icons: {
       icon: [
-        { url: '/favicon.ico' },
-        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+        { url: '/favicon.ico' }, // Favicon в корне app
+        { url: '/public/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+        { url: '/public/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
       ],
       apple: [
-        { url: '/apple-touch-icon.png' }
+        { url: '/public/apple-touch-icon.png' }
       ],
       other: [
         {
           rel: 'mask-icon',
-          url: '/safari-pinned-tab.svg',
+          url: '/public/safari-pinned-tab.svg',
           color: '#5bbad5'
         }
       ]
     },
-    manifest: '/site.webmanifest',
+    manifest: '/public/site.webmanifest',
     themeColor: '#ffffff'
   };
 }
+
 
 export function generateStaticParams() {
   return i18nConfig.locales.map((locale) => ({ locale }));
