@@ -1,6 +1,6 @@
 {
     "tv_channels": {
-      "title": "services.categories.tv",
+      "title": "services.categories.tv_channels",
       "items": [
         { "href": "https://myvideo.ge/c/livetv", "label": "MyVideo TV" },
         { "href": "https://www.silktv.ge/?page=silktv", "label": "Silk TV" }
@@ -17,7 +17,7 @@
       ]
     },
     "real_estate": {
-      "title": "services.categories.realestate",
+      "title": "services.categories.real_estate",
       "items": [
         { "href": "https://realtor.ge", "label": "REALTOR.GE" },
         { "href": "https://house.ge/", "label": "HOUSE.GE" },
@@ -93,7 +93,7 @@
       ]
     },
     "payment_services": {
-      "title": "services.categories.payment",
+      "title": "services.categories.payment_services",
       "items": [
         { "href": "https://tbcpay.ge", "label": "TBC Pay" },
         { "href": "https://bogpay.ge", "label": "BoG Pay" },
@@ -125,7 +125,7 @@
       ]
     },
     "telecommunication": {
-      "title": "services.categories.telecom",
+      "title": "services.categories.telecommunication",
       "items": [
         { "href": "https://www.magticom.ge/", "label": "MAGTI" },
         { "href": "https://silknet.com", "label": "SILKNET" },
@@ -140,16 +140,16 @@
       ]
     },
     "language_learning": {
-      "title": "services.categories.language",
+      "title": "services.categories.language_learning",
       "items": [
-        { "href": "https://lingwing.com/ka", "label": "LINGWING" }
+        { "href": "https://lingwing.com/", "label": "LINGWING" }
       ]
     },
     "cryptocurrency": {
-      "title": "services.categories.crypto",
+      "title": "services.categories.cryptocurrency",
       "items": [
-        { "href": "https://alltrust.me/ka/?ref=ZU1hqcjdfnq", "label": "ALLTRUST.ME" },
-        { "href": "https://cryptal.com/en/referral/3Pd9zd4Bxw", "label": "CRYPTAL" }
+        { "href": "https://alltrust.me/?ref=ZU1hqcjdfnq", "label": "ALLTRUST.ME" },
+        { "href": "https://cryptal.com/referral/3Pd9zd4Bxw", "label": "CRYPTAL" }
       ]
     },
     "parent": {
