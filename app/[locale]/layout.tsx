@@ -76,7 +76,7 @@ export default function LocaleLayout({
     <html lang={locale}>
       <Head>
           <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="public/icon-16x16.png" sizes="any" />
+          <link rel="icon" href="public/icon-16x16.png" type="image/png" sizes="any" />
           <link
                 rel="icon"
                 href="public/icon?<generated>"
