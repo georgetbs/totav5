@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation'
-import { i18nConfig } from '@/config/i18n'
-import { I18nProvider } from '@/lib/i18n'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Metadata } from 'next'
-import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo'
+import { notFound } from 'next/navigation';
+import { i18nConfig } from '@/config/i18n';
+import { I18nProvider } from '@/lib/i18n';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Metadata } from 'next';
+import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo';
 
 // Define keywords for each locale
 const localizedKeywords: Record<string, string[]> = {
@@ -65,7 +65,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     title: localizedTitles[safeLocale],
     description: localizedDescriptions[safeLocale],
     keywords: [...localizedKeywords[safeLocale]], // Convert readonly array to mutable
-    url: 'https://tota.ge',
+    url: 'https://tota.ge/',
     locale,
   });
 
@@ -90,25 +90,24 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     },
     manifest: '/site.webmanifest',
     themeColor: '#ffffff'
-  }
+  };
 }
 
 export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }))
+  return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
 export default function LocaleLayout({
   children,
   params: { locale }
 }: {
-  children: React.ReactNode
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
-  if (!i18nConfig.locales.includes(locale)) notFound()
+  if (!i18nConfig.locales.includes(locale)) notFound();
 
   return (
     <html lang={locale}>
-      <link rel="icon" href="/favicon.ico" />
       <body>
         <I18nProvider initialLocale={locale}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -121,5 +120,5 @@ export default function LocaleLayout({
         </I18nProvider>
       </body>
     </html>
-  )
+  );
 }
