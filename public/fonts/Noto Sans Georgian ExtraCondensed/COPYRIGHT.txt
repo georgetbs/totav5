@@ -1,0 +1,1 @@
+Copyright 2022 The Noto Project Authors (https://github.com/notofonts/georgian)
