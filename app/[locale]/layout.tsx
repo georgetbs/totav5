@@ -78,13 +78,13 @@ export default function LocaleLayout({
           <link rel="icon" href="/favicon.ico" sizes="any" />
           <link
                 rel="icon"
-                href="/icon?<generated>"
+                href="public/icon?<generated>"
                 type="image/<generated>"
                 sizes="<generated>"
               />
           <link
             rel="apple-touch-icon"
-            href="/apple-icon?<generated>"
+            href="/public/apple-icon?<generated>"
             type="image/<generated>"
             sizes="<generated>"
           />

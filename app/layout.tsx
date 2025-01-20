@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google'
+import Head from 'next/head';
 
 const inter = Inter({ subsets: ['latin', 'cyrillic'] })
 
@@ -14,6 +15,21 @@ export default function RootLayout({
 }) {
   return (
     <html>
+       <Head>
+          <link rel="icon" href="/favicon.ico" sizes="any" />
+          <link
+                rel="icon"
+                href="public/icon?<generated>"
+                type="image/<generated>"
+                sizes="<generated>"
+              />
+          <link
+            rel="apple-touch-icon"
+            href="/public/apple-icon?<generated>"
+            type="image/<generated>"
+            sizes="<generated>"
+          />
+      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   )
