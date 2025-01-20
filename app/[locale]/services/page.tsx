@@ -10,14 +10,14 @@ import categoriesData from '@/app/data/categories.json'
 
 const getServices = (locale: string) => [
   {
-    title: translate('page.services.weather.title' as TranslationKey, locale),
-    description: translate('page.services.weather.description' as TranslationKey, locale),
+    title: translate('services.weather.title' as TranslationKey, locale),
+    description: translate('services.weather.description' as TranslationKey, locale),
     icon: Thermometer,
     href: '/weather-details'
   },
   {
-    title: translate('page.services.exchange.title' as TranslationKey, locale),
-    description: translate('page.services.exchange.description' as TranslationKey, locale),
+    title: translate('services.exchange.title' as TranslationKey, locale),
+    description: translate('services.exchange.description' as TranslationKey, locale),
     icon: DollarSign,
     href: '/exchange-rates'
   }
@@ -37,7 +37,7 @@ export default function ServicesPage() {
       {/* Services Section */}
       <section>
         <h2 className="text-2xl font-bold mb-4">
-          {translate('page.sections.services' as TranslationKey, locale)}
+          {translate('sections.services' as TranslationKey, locale)}
         </h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
@@ -62,7 +62,7 @@ export default function ServicesPage() {
       {/* Useful Links Section */}
       <section>
         <h2 className="text-2xl font-bold mb-4">
-          {translate('page.sections.useful' as TranslationKey, locale)}
+          {translate('sections.useful' as TranslationKey, locale)}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {Object.entries(categoriesData).map(([key, category]) => (
