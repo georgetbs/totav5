@@ -1,11 +1,11 @@
-import { notFound } from 'next/navigation'
-import { i18nConfig } from '@/config/i18n'
-import { I18nProvider } from '@/lib/i18n'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Metadata } from 'next'
-import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo'
+import { notFound } from 'next/navigation';
+import { i18nConfig } from '@/config/i18n';
+import { I18nProvider } from '@/lib/i18n';
+import { Header } from '@/components/header';
+import { Footer } from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Metadata } from 'next';
+import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo';
 
 // Define keywords for each locale
 const localizedKeywords: Record<string, string[]> = {
@@ -45,7 +45,7 @@ const localizedKeywords: Record<string, string[]> = {
 const localizedTitles: Record<string, string> = {
   ka: 'თოთა - ქართული პორტალი',
   en: 'Tota - Georgian Portal',
-  ru: 'Тота - Портал для жителей Грузии'
+  ru: 'Тота - Грузинский портал'
 };
 
 // Define descriptions for each locale
@@ -65,7 +65,7 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     title: localizedTitles[safeLocale],
     description: localizedDescriptions[safeLocale],
     keywords: [...localizedKeywords[safeLocale]], // Convert readonly array to mutable
-    url: 'https://tota.ge',
+    url: 'https://tota.ge/',
     locale,
   });
 
@@ -73,38 +73,38 @@ export async function generateMetadata({ params: { locale } }: { params: { local
     ...metadata,
     icons: {
       icon: [
-        { url: '/favicon.ico' },
-        { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-        { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
+        { url: `/${locale}/favicon.ico` },
+        { url: `/${locale}/favicon-16x16.png`, sizes: '16x16', type: 'image/png' },
+        { url: `/${locale}/favicon-32x32.png`, sizes: '32x32', type: 'image/png' }
       ],
       apple: [
-        { url: '/apple-touch-icon.png' }
+        { url: `/${locale}/apple-touch-icon.png` }
       ],
       other: [
         {
           rel: 'mask-icon',
-          url: '/safari-pinned-tab.svg',
+          url: `/${locale}/safari-pinned-tab.svg`,
           color: '#5bbad5'
         }
       ]
     },
-    manifest: '/site.webmanifest',
+    manifest: `/${locale}/site.webmanifest`,
     themeColor: '#ffffff'
-  }
+  };
 }
 
 export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }))
+  return i18nConfig.locales.map((locale) => ({ locale }));
 }
 
 export default function LocaleLayout({
   children,
   params: { locale }
 }: {
-  children: React.ReactNode
-  params: { locale: string }
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
-  if (!i18nConfig.locales.includes(locale)) notFound()
+  if (!i18nConfig.locales.includes(locale)) notFound();
 
   return (
     <html lang={locale}>
@@ -120,5 +120,5 @@ export default function LocaleLayout({
         </I18nProvider>
       </body>
     </html>
-  )
+  );
 }
