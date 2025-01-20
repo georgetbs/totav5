@@ -108,6 +108,7 @@ export default function LocaleLayout({
 
   return (
     <html lang={locale}>
+      <link rel="icon" href="/favicon.ico" />
       <body>
         <I18nProvider initialLocale={locale}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
