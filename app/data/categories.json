@@ -1,13 +1,13 @@
 {
     "tv_channels": {
-      "title": "page.categories.tv.title",
+      "title": "categories.tv.title",
       "items": [
         { "href": "https://myvideo.ge/c/livetv", "label": "MyVideo TV" },
         { "href": "https://www.silktv.ge/?page=silktv", "label": "Silk TV" }
       ]
     },
     "tickets": {
-      "title": "page.categories.tickets.title",
+      "title": "categories.tickets.title",
       "items": [
         { "href": "https://tkt.ge", "label": "TKT.GE" },
         { "href": "https://biletebi.ge", "label": "BILETEBI.GE" },
@@ -17,7 +17,7 @@
       ]
     },
     "real_estate": {
-      "title": "page.categories.realestate.title",
+      "title": "categories.realestate.title",
       "items": [
         { "href": "https://realtor.ge", "label": "REALTOR.GE" },
         { "href": "https://house.ge/", "label": "HOUSE.GE" },
@@ -30,7 +30,7 @@
       ]
     },
     "stores": {
-      "title": "page.categories.stores.title",
+      "title": "categories.stores.title",
       "items": [
         { "href": "https://veli.store", "label": "VELI.STORE" },
         { "href": "https://mymarket.ge", "label": "MYMARKET.GE" },
@@ -44,7 +44,7 @@
       ]
     },
     "pharmacies": {
-      "title": "page.categories.pharmacies.title",
+      "title": "categories.pharmacies.title",
       "items": [
         { "href": "https://www.aversi.ge", "label": "AVERSI" },
         { "href": "https://psp.ge", "label": "PSP" },
@@ -52,7 +52,7 @@
       ]
     },
     "jobs": {
-      "title": "page.categories.jobs.title",
+      "title": "categories.jobs.title",
       "items": [
         { "href": "https://www.jobs.ge", "label": "JOBS.GE" },
         { "href": "https://www.hr.ge", "label": "HR.GE" },
@@ -60,7 +60,7 @@
       ]
     },
     "auto": {
-      "title": "page.categories.auto.title",
+      "title": "categories.auto.title",
       "items": [
         { "href": "https://autopapa.ge", "label": "AUTOPAPA.GE" },
         { "href": "https://myauto.ge", "label": "MYAUTO.GE" },
@@ -70,7 +70,7 @@
       ]
     },
     "handymen": {
-      "title": "page.categories.handymen.title",
+      "title": "categories.handymen.title",
       "items": [
         { "href": "https://servisebi.ge", "label": "SERVISEBI.GE" },
         { "href": "https://mrmaster.ge", "label": "MRMASTER.GE" },
@@ -78,13 +78,13 @@
       ]
     },
     "school": {
-      "title": "page.categories.school.title",
+      "title": "categories.school.title",
       "items": [
         { "href": "https://www.schoolbook.ge", "label": "SCHOOLBOOK" }
       ]
     },
     "government": {
-      "title": "page.categories.government.title",
+      "title": "categories.government.title",
       "items": [
         { "href": "https://my.gov.ge", "label": "MY.GOV.GE" },
         { "href": "https://sda.gov.ge", "label": "SDA.GOV.GE" },
@@ -93,7 +93,7 @@
       ]
     },
     "payment_services": {
-      "title": "page.categories.payment.title",
+      "title": "categories.payment.title",
       "items": [
         { "href": "https://tbcpay.ge", "label": "TBC Pay" },
         { "href": "https://bogpay.ge", "label": "BoG Pay" },
@@ -101,7 +101,7 @@
       ]
     },
     "banks": {
-      "title": "page.categories.banks.title",
+      "title": "categories.banks.title",
       "items": [
         { "href": "https://tbc.ge", "label": "TBC" },
         { "href": "https://bog.ge", "label": "BANK OF GEORGIA" },
@@ -111,13 +111,13 @@
       ]
     },
     "sport": {
-      "title": "page.categories.sport.title",
+      "title": "categories.sport.title",
       "items": [
         { "href": "https://sprenty.com/", "label": "SPLENTY" }
       ]
     },
     "clinics": {
-      "title": "page.categories.clinics.title",
+      "title": "categories.clinics.title",
       "items": [
         { "href": "https://www.aversiclinic.ge", "label": "AVERSI CLINIC" },
         { "href": "https://toduaclinic.ge", "label": "TODUA CLINIC" },
@@ -125,7 +125,7 @@
       ]
     },
     "telecommunication": {
-      "title": "page.categories.telecom.title",
+      "title": "categories.telecom.title",
       "items": [
         { "href": "https://www.magticom.ge/", "label": "MAGTI" },
         { "href": "https://silknet.com", "label": "SILKNET" },
@@ -133,40 +133,40 @@
       ]
     },
     "discounts": {
-      "title": "page.categories.discounts.title",
+      "title": "categories.discounts.title",
       "items": [
         { "href": "https://www.swoop.ge", "label": "SWOOP.GE" },
         { "href": "https://hotsale.ge", "label": "HOTSALE.GE" }
       ]
     },
     "language_learning": {
-      "title": "page.categories.language.title",
+      "title": "categories.language.title",
       "items": [
         { "href": "https://lingwing.com/ka", "label": "LINGWING" }
       ]
     },
     "cryptocurrency": {
-      "title": "page.categories.crypto.title",
+      "title": "categories.crypto.title",
       "items": [
         { "href": "https://alltrust.me/ka/?ref=ZU1hqcjdfnq", "label": "ALLTRUST.ME" },
         { "href": "https://cryptal.com/en/referral/3Pd9zd4Bxw", "label": "CRYPTAL" }
       ]
     },
     "parent": {
-      "title": "page.categories.parent.title",
+      "title": "categories.parent.title",
       "items": [
         { "href": "https://mshoblebi.ge/", "label": "MSHOBLEBI.GE" },
         { "href": "https://vidal.ge", "label": "VIDAL.GE" }
       ]
     },
     "vet_clinics": {
-      "title": "page.categories.vet.title",
+      "title": "categories.vet.title",
       "items": [
         { "href": "https://www.facebook.com/Abvet.clinic", "label": "ABVETT CLINIC" }
       ]
     },
     "forum": {
-      "title": "page.categories.forum.title",
+      "title": "categories.forum.title",
       "items": [
         { "href": "https://forum.ge", "label": "FORUM.GE" }
       ]

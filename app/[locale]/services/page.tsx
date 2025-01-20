@@ -37,7 +37,7 @@ export default function ServicesPage() {
       {/* Services Section */}
       <section>
         <h2 className="text-2xl font-bold mb-4">
-          {translate('sections.services' as TranslationKey, locale)}
+          {translate('services.title' as TranslationKey, locale)}
         </h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => {
@@ -62,7 +62,7 @@ export default function ServicesPage() {
       {/* Useful Links Section */}
       <section>
         <h2 className="text-2xl font-bold mb-4">
-          {translate('sections.useful' as TranslationKey, locale)}
+          {translate('services.useful_links' as TranslationKey, locale)}
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {Object.entries(categoriesData).map(([key, category]) => (
