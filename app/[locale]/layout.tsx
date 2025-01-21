@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { generateMetadata as genMeta, generateCanonicalUrl } from "@/lib/seo"
-import { translate } from "@/lib/i18nUtils"
+import { translate } from "@/lib/i18nUtils" // Changed from weatherUtils to i18nUtils
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const title = translate("metadata.title", locale)
@@ -40,6 +40,7 @@ export default function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />

@@ -1,11 +1,25 @@
-import { Inter } from 'next/font/google'
-import Head from 'next/head';
+import { Inter } from "next/font/google"
+import type { Metadata } from "next"
 
-const inter = Inter({ subsets: ['latin', 'cyrillic'] })
+const inter = Inter({ subsets: ["latin", "cyrillic"] })
 
-export const metadata = {
-  title: 'Tota - Georgian Portal',
-  description: 'Portal for Georgians: locals, expats, and tourists',
+export const metadata: Metadata = {
+  title: "Tota - Georgian Portal",
+  description: "Portal for Georgians: locals, expats, and tourists",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+    other: [{ rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#5bbad5" }],
+  },
+  manifest: "/site.webmanifest",
+  themeColor: "#ffffff",
+  other: {
+    "msapplication-TileColor": "#da532c",
+  },
 }
 
 export default function RootLayout({
@@ -15,27 +29,8 @@ export default function RootLayout({
 }) {
   return (
     <html>
-       <Head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/public/icon-16x16.png" sizes="any" type="image/png"/>
-          <link
-                rel="icon"
-                href="/public/icon?<generated>"
-                type="image/<generated>"
-                sizes="<generated>"
-              />
-          <link
-            rel="apple-touch-icon"
-            href="/public/apple-icon?<generated>"
-            type="image/<generated>"
-            sizes="<generated>"
-          />
-      </Head>
       <body className={inter.className}>{children}</body>
     </html>
   )
 }
 
-
-
-import './globals.css'
