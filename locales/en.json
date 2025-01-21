@@ -59,6 +59,11 @@
       "vet_clinics": "Veterinary Clinics",
       "forum": "Forum"
     }
+  },
+  "metadata": {
+    "title": "Tota - Georgian Portal",
+    "description": "Portal for Georgians: locals, expats, and tourists",
+    "keywords": "Georgia, Tbilisi, weather, exchange rates, news, services, travel"
   }
 }
 

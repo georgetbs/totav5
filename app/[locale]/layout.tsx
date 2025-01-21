@@ -1,95 +1,53 @@
-import { notFound } from 'next/navigation';
-import { i18nConfig } from '@/config/i18n';
-import { I18nProvider } from '@/lib/i18n';
-import { Header } from '@/components/header';
-import { Footer } from '@/components/footer';
-import { ThemeProvider } from '@/components/theme-provider';
-import Head from 'next/head';
-import { Metadata } from 'next';
-import { generateMetadata as genMeta, generateCanonicalUrl } from '@/lib/seo';
+import { notFound } from "next/navigation"
+import { i18nConfig } from "@/config/i18n"
+import { I18nProvider } from "@/lib/i18n"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { ThemeProvider } from "@/components/theme-provider"
+import type { Metadata } from "next"
+import { generateMetadata as genMeta, generateCanonicalUrl } from "@/lib/seo"
+import { translate } from "@/lib/weatherUtils"
 
-// Define keywords for each locale
-const localizedKeywords: Record<string, string[]> = {
-  ka: [
-    'საქართველო',
-    'თბილისი',
-    'ამინდი',
-    'ვალუტის კურსი',
-    'სიახლეები',
-    'ქართული პორტალი',
-    'ემიგრანტები',
-    'ტურისტები'
-  ],
-  en: [
-    'Georgia',
-    'Tbilisi',
-    'weather',
-    'exchange rates',
-    'news',
-    'Georgian portal',
-    'expats',
-    'tourists'
-  ],
-  ru: [
-    'Грузия',
-    'Тбилиси',
-    'погода',
-    'курсы валют',
-    'новости',
-    'портал',
-    'жизнь в Грузии',
-    'туристы'
-  ]
-};
+export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
+  const title = translate("metadata.title", locale)
+  const description = translate("metadata.description", locale)
+  const keywords = translate("metadata.keywords", locale)
+    .split(",")
+    .map((keyword) => keyword.trim())
 
-// Define titles for each locale
-const localizedTitles: Record<string, string> = {
-  ka: 'თოთა - ქართული პორტალი',
-  en: 'Tota - Georgian Portal',
-  ru: 'Тота - Грузинский портал'
-};
-
-// Define descriptions for each locale
-const localizedDescriptions: Record<string, string> = {
-  ka: 'საქართველოს პორტალი ყველასთვის: ადგილობრივი მოსახლეობისთვის, ემიგრანტებისთვის, ტურისტებისთვის და საქართველოს მოყვარულთათვის. აქ თქვენ იპოვით ყველაფერს, რაც გჭირდებათ საქართველოში ცხოვრებისთვის, მოგზაურობისთვის და ქვეყნის უკეთ გასაცნობად',
-  
-  en: 'Your comprehensive Georgian portal: serving locals, expats, tourists, and everyone who loves Georgia. Find everything you need to live, travel, and explore this beautiful country - from daily essentials to in-depth cultural insights',
-  
-  ru: 'Ваш путеводитель по Грузии: для местных жителей, экспатов, туристов и всех, кто любит эту прекрасную страну. Здесь вы найдёте всё необходимое для жизни, путешествий и знакомства с культурой Грузии - от повседневных потребностей до глубокого погружения в местные традиции'
-};
-
+  return genMeta({
+    title,
+    description,
+    keywords,
+    url: "https://tota.ge",
+    locale,
+  })
+}
 
 export function generateStaticParams() {
-  return i18nConfig.locales.map((locale) => ({ locale }));
+  return i18nConfig.locales.map((locale) => ({ locale }))
 }
 
 export default function LocaleLayout({
   children,
-  params: { locale }
+  params: { locale },
 }: {
-  children: React.ReactNode;
-  params: { locale: string };
+  children: React.ReactNode
+  params: { locale: string }
 }) {
-  if (!i18nConfig.locales.includes(locale)) notFound();
+  if (!i18nConfig.locales.includes(locale)) notFound()
 
   return (
     <html lang={locale}>
-      <Head>
-          <link rel="icon" href="/favicon.ico" sizes="any" />
-          <link rel="icon" href="/public/icon-16x16.png" type="image/png" sizes="any" />
-          <link
-                rel="icon"
-                href="/public/icon?<generated>"
-                type="image/<generated>"
-                sizes="<generated>"
-              />
-          <link
-            rel="apple-touch-icon"
-            href="/public/apple-icon?<generated>"
-            type="image/<generated>"
-            sizes="<generated>"
-          />
-      </Head>
+      <head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
+        <meta name="msapplication-TileColor" content="#da532c" />
+        <meta name="theme-color" content="#ffffff" />
+      </head>
       <body>
         <I18nProvider initialLocale={locale}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
@@ -102,5 +60,6 @@ export default function LocaleLayout({
         </I18nProvider>
       </body>
     </html>
-  );
+  )
 }
+
