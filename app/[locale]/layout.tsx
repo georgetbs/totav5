@@ -6,7 +6,7 @@ import { Footer } from "@/components/footer"
 import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
 import { generateMetadata as genMeta, generateCanonicalUrl } from "@/lib/seo"
-import { translate } from "@/lib/weatherUtils"
+import { translate } from "@/lib/i18nUtils"
 
 export async function generateMetadata({ params: { locale } }: { params: { locale: string } }): Promise<Metadata> {
   const title = translate("metadata.title", locale)
