@@ -68,10 +68,13 @@ const getWeatherIcon = (description: string) => {
     return <Sun className="w-6 h-6 text-yellow-500" />;
   }
   
-  if (['few clouds', 'небольшая облачность', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
-    return <CloudSun className="w-6 h-6 text-gray-500">
-      <Sun className="absolute text-yellow-500" />
-    </CloudSun>;
+  if (['few clouds', 'გატეხილი ღრუბლები','небольшая облачность', 'broken clouds', 'облачность с прояснениями', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
+    return (
+      <div className="relative w-6 h-6">
+        <Cloud className="absolute w-6 h-6 text-gray-500 z-0" />
+        <Sun className="absolute w-4 h-4 text-yellow-500 z-10 top-0 right-0" />
+      </div>
+    )
   }
 
   // Cloud conditions
