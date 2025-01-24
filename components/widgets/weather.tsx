@@ -211,6 +211,7 @@ export function WeatherWidget() {
             </div>
             <div className="text-sm text-muted-foreground">
               <div>
+              <Thermometer className="w-5 h-5 text-muted-foreground" />
                 {translate('weather.feelsLike', locale)}: {formatTemperature(weatherData.main.feels_like)}°C
               </div>
               <div className="flex items-center gap-1">
