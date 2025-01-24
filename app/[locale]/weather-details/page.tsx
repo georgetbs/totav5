@@ -81,7 +81,7 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Drizzle conditions
-  if (['drizzle', 'моросящий дождь', 'წვიმა'].some(term => desc.includes(term))) {
+  if (['drizzle','морос','моросящий дождь', 'წვიმა'].some(term => desc.includes(term))) {
     return <CloudDrizzle className="w-6 h-6 text-blue-400" />;
   }
   
@@ -101,7 +101,7 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Mist/Fog/Haze/Smoke conditions
-  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 
+  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 'пасмурно',
        'туман', 'дым', 'дымка', 'песок', 'пыль', 'вулканический пепел', 'шквалы',
        'ნისლი', 'მოწევა', 'ქვიშა', 'მტვერი', 'ვულკანური ფერფლი', 'ყვირილს'].some(term => desc.includes(term))) {
     return <CloudFog className="w-6 h-6 text-gray-400" />;
