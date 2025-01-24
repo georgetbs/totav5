@@ -116,7 +116,7 @@ const getWeatherIcon = (description: string) => {
     return (
       <div className="relative w-6 h-6">
         <Cloud className="absolute w-6 h-6 text-gray-500 z-10" />
-        <Sun className="absolute w-4 h-4 text-yellow-500 z-0 top-0 right-0" />
+        <Sun className="absolute w-4 h-4 text-yellow-500 z-0 top-0 right-0 opacity-50" />
       </div>
     )
   }
