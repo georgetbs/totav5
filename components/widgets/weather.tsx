@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Cloud, MapPin, AlertTriangle, Sun, CloudRain, CloudFog, Thermometer, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
+import { Cloud, MapPin, AlertTriangle, Sun, CloudSun, CloudRain, CloudFog, Thermometer, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
@@ -64,10 +64,14 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Clear sky conditions
-  if (['clear', 'ясное небо', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
+  if (['clear', 'ясн', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
     return <Sun className="w-6 h-6 text-yellow-500" />;
   }
   
+  if (['few clouds', 'небольшая облачность', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
+    return <CloudSun className="w-6 h-6 text-yellow-600" />;
+  }
+
   // Cloud conditions
   if (['cloud', 'обла', 'ღრუბელი'].some(term => desc.includes(term))) {
     return <Cloud className="w-6 h-6 text-gray-500" />;

@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { translateCityName, translateWeatherDescription, translate } from '@/lib/weatherUtils'
 import { getCityCoordinates } from '@/lib/locationUtils'
 import { preloadedCities } from '@/lib/preloadedCities'
-import { Cloud, Sun, CloudRain, CloudFog, Thermometer, Droplets, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
+import { Cloud, Sun, CloudRain, CloudFog, CloudSun, Thermometer, Droplets, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
 import cityTranslations from '@/app/data/cityTranslations.json'
 import cityTranslationsEn from '@/app/data/cityTranslationsEn.json'
 import cityTranslationsRu from '@/app/data/cityTranslationsRu.json'
@@ -108,8 +108,12 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Clear sky conditions
-  if (['clear', 'ясное небо', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
+  if (['clear', 'ясн', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
     return <Sun className="w-6 h-6 text-yellow-500" />;
+  }
+
+  if (['few clouds', 'небольшая облачность', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
+    return <CloudSun className="w-6 h-6 text-yellow-600" />;
   }
   
   // Cloud conditions
