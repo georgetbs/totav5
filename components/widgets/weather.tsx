@@ -210,10 +210,10 @@ export function WeatherWidget() {
               </div>
             </div>
             <div className="text-sm text-muted-foreground">
-              <div>
-              <Thermometer className="w-5 h-5 text-muted-foreground" />
-                {translate('weather.feelsLike', locale)}: {formatTemperature(weatherData.main.feels_like)}°C
-              </div>
+            <div className="flex items-center gap-2">
+                    <Thermometer className="w-5 h-5 text-muted-foreground" />
+                    <span>{translate('weather.feelsLike', locale)}: {formatTemperature(currentWeather.main.feels_like)}°C</span>
+                  </div>
               <div className="flex items-center gap-1">
                 <Droplets className="h-4 w-4" />
                 <div>{translate('weather.humidity', locale)}: {weatherData.main.humidity}%</div>
