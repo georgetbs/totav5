@@ -101,7 +101,7 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Mist/Fog/Haze/Smoke conditions
-  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 'пасмурно',
+  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 'overcast', 'მოღრუბლულობა', 'пасмурно',
        'туман', 'дым', 'дымка', 'песок', 'пыль', 'вулканический пепел', 'шквалы',
        'ნისლი', 'მოწევა', 'ქვიშა', 'მტვერი', 'ვულკანური ფერფლი', 'ყვირილს'].some(term => desc.includes(term))) {
     return <CloudFog className="w-6 h-6 text-gray-400" />;
