@@ -69,7 +69,7 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Cloud conditions
-  if (['cloud', 'облак', 'ღრუბელი'].some(term => desc.includes(term))) {
+  if (['cloud', 'обла', 'ღრუბელი'].some(term => desc.includes(term))) {
     return <Cloud className="w-6 h-6 text-gray-500" />;
   }
   
