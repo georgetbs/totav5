@@ -108,18 +108,19 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Clear sky conditions
-  if (['clear', 'ясн', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
+  if (['clear', 'ясно', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
     return <Sun className="w-6 h-6 text-yellow-500" />;
   }
   if (['few clouds', 'небольшая облачность', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
     return <>
-      <Sun className="absolute w-4 h-4 text-yellow-500 z-10 top-1 left-1" />
       <Cloud className="w-6 h-6 text-gray-500" />
+      <Sun className="absolute w-4 h-4 text-yellow-500 z-10 top-1 left-1" />
+      
     </>
   }
   
   // Cloud conditions
-  if (['cloud', 'обла', 'ღრუბელი'].some(term => desc.includes(term))) {
+  if (['cloud', 'облачно', 'облачность', 'ღრუბელი'].some(term => desc.includes(term))) {
     return <Cloud className="w-6 h-6 text-gray-500" />;
   }
   
