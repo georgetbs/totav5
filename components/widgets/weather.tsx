@@ -28,6 +28,7 @@ interface WeatherData {
   name: string
 }
 
+
 const getWeatherIcon = (description: string) => {
   const desc = description.toLowerCase();
   
@@ -57,18 +58,18 @@ const getWeatherIcon = (description: string) => {
   }
   
   // Mist/Fog/Haze/Smoke conditions
-  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'overcast', 'squall', 'მოღრუბლულობა', 'пасмурно',
+  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 'overcast', 'მოღრუბლულობა', 'пасмурно',
        'туман', 'дым', 'дымка', 'песок', 'пыль', 'вулканический пепел', 'шквалы',
        'ნისლი', 'მოწევა', 'ქვიშა', 'მტვერი', 'ვულკანური ფერფლი', 'ყვირილს'].some(term => desc.includes(term))) {
     return <CloudFog className="w-6 h-6 text-gray-400" />;
   }
   
   // Clear sky conditions
-  if (['clear', 'ясн', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
+  if (['clear', 'ясно', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
     return <Sun className="w-6 h-6 text-yellow-500" />;
   }
-  
-  if (['few clouds', 'გატეხილი ღრუბლები','небольшая облачность', 'broken clouds', 'облачно с прояснениями', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
+
+  if (['few clouds', 'გატეხილი ღრუბლები','небольшая облачность', 'broken clouds', 'облачно с прояснениями', 'переменная облачность','scattered clouds','მიმოფანტული ღრუბლები', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
     return (
       <div className="relative w-6 h-6">
         <Cloud className="absolute w-6 h-6 text-gray-500 z-10" />
@@ -76,9 +77,9 @@ const getWeatherIcon = (description: string) => {
       </div>
     )
   }
-
+  
   // Cloud conditions
-  if (['cloud', 'обла', 'ღრუბელი'].some(term => desc.includes(term))) {
+  if (['cloud', 'облачно', 'ღრუბელი'].some(term => desc.includes(term))) {
     return <Cloud className="w-6 h-6 text-gray-500" />;
   }
   
