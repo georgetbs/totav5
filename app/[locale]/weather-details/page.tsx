@@ -72,31 +72,51 @@ interface WeatherData {
 
 
 
-const getWeatherIcon = (description:string) => {
+const getWeatherIcon = (description: string) => {
   const desc = description.toLowerCase();
-
-  if (desc.includes('thunderstorm')) return <Zap className="w-6 h-6 text-purple-500" />;
-  if (desc.includes('drizzle')) return <CloudDrizzle className="w-6 h-6 text-blue-400" />;
-  if (desc.includes('rain')) return <CloudRain className="w-6 h-6 text-blue-500" />;
-  if (desc.includes('snow')) return <Snowflake className="w-6 h-6 text-gray-300" />;
-  if (desc.includes('tornado')) return <Tornado className="w-6 h-6 text-gray-700" />;
-  if (
-    desc.includes('mist') ||
-    desc.includes('fog') ||
-    desc.includes('smoke') ||
-    desc.includes('haze') ||
-    desc.includes('dust') ||
-    desc.includes('ash') ||
-    desc.includes('squall')
-  )
+  
+  // Thunderstorm conditions
+  if (['thunderstorm', 'гроза', 'ჭექა-ქუხილი'].some(term => desc.includes(term))) {
+    return <Zap className="w-6 h-6 text-purple-500" />;
+  }
+  
+  // Drizzle conditions
+  if (['drizzle', 'моросящий дождь', 'წვიმა'].some(term => desc.includes(term))) {
+    return <CloudDrizzle className="w-6 h-6 text-blue-400" />;
+  }
+  
+  // Rain conditions
+  if (['rain', 'дождь', 'წვიმა'].some(term => desc.includes(term))) {
+    return <CloudRain className="w-6 h-6 text-blue-500" />;
+  }
+  
+  // Snow conditions
+  if (['snow', 'снег', 'თოვლი'].some(term => desc.includes(term))) {
+    return <Snowflake className="w-6 h-6 text-gray-300" />;
+  }
+  
+  // Tornado conditions
+  if (['tornado', 'торнадо', 'ტორნადო'].some(term => desc.includes(term))) {
+    return <Tornado className="w-6 h-6 text-gray-700" />;
+  }
+  
+  // Mist/Fog/Haze/Smoke conditions
+  if (['mist', 'fog', 'smoke', 'haze', 'dust', 'ash', 'squall', 
+       'туман', 'дым', 'дымка', 'песок', 'пыль', 'вулканический пепел', 'шквалы',
+       'ნისლი', 'მოწევა', 'ქვიშა', 'მტვერი', 'ვულკანური ფერფლი', 'ყვირილს'].some(term => desc.includes(term))) {
     return <CloudFog className="w-6 h-6 text-gray-400" />;
-  if (
-    desc.includes('clear') &&
-    !desc.includes('cloud')
-  )
+  }
+  
+  // Clear sky conditions
+  if (['clear', 'ясное небо', 'მოწმენდილი ცა'].some(term => desc.includes(term)) && !desc.includes('cloud')) {
     return <Sun className="w-6 h-6 text-yellow-500" />;
-  if (desc.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />;
-
+  }
+  
+  // Cloud conditions
+  if (['cloud', 'облак', 'ღრუბელი'].some(term => desc.includes(term))) {
+    return <Cloud className="w-6 h-6 text-gray-500" />;
+  }
+  
   // Default icon for unclassified weather
   return <Wind className="w-6 h-6 text-gray-500" />;
 };
