@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Cloud, MapPin, AlertTriangle, Sun, CloudSun, CloudRain, CloudFog, Thermometer, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
+import { Cloud, MapPin, AlertTriangle, Sun, CloudSun, CloudRain, CloudFog, Thermometer, Wind, Snowflake, Zap, CloudDrizzle, Tornado, Droplets } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
@@ -69,6 +69,7 @@ const getWeatherIcon = (description: string) => {
     return <Sun className="w-6 h-6 text-yellow-500" />;
   }
 
+  // Few clouds / scattered clouds conditions
   if (['few clouds', 'გატეხილი ღრუბლები','небольшая облачность', 'broken clouds', 'облачно с прояснениями', 'переменная облачность','scattered clouds','მიმოფანტული ღრუბლები', 'რამდენიმე ღრუბელი'].some(term => desc.includes(term))) {
     return (
       <div className="relative w-6 h-6">
@@ -203,7 +204,7 @@ export function WeatherWidget() {
         <div className="flex flex-col gap-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
-              {getWeatherIcon(weatherData.weather[0].main)}
+              {getWeatherIcon(weatherData.weather[0].description)}
               <div className="text-3xl font-bold">
                 {formatTemperature(weatherData.main.temp)}°C
               </div>
@@ -213,7 +214,7 @@ export function WeatherWidget() {
                 {translate('weather.feelsLike', locale)}: {formatTemperature(weatherData.main.feels_like)}°C
               </div>
               <div className="flex items-center gap-1">
-                <Cloud className="h-4 w-4" />
+                <Droplets className="h-4 w-4" />
                 <div>{translate('weather.humidity', locale)}: {weatherData.main.humidity}%</div>
               </div>
               <div>{translateWeatherDescription(weatherData.weather[0].description, locale)}</div>
