@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Cloud, Sun, CloudRain, CloudSnow, CloudFog, MapPin, Wind, Thermometer, AlertTriangle } from 'lucide-react'
+import { Cloud, MapPin, AlertTriangle, Sun, CloudRain, CloudFog, Thermometer, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { useRouter } from 'next/navigation'
@@ -28,14 +28,34 @@ interface WeatherData {
   name: string
 }
 
-const getWeatherIcon = (description: string) => {
-  const desc = description.toLowerCase()
-  if (desc.includes('rain')) return <CloudRain className="w-6 h-6 text-blue-500" />
-  if (desc.includes('snow')) return <CloudSnow className="w-6 h-6 text-gray-300" />
-  if (desc.includes('fog') || desc.includes('mist')) return <CloudFog className="w-6 h-6 text-gray-400" />
-  if (desc.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />
-  return <Sun className="w-6 h-6 text-yellow-500" />
-}
+const getWeatherIcon = (description:string) => {
+  const desc = description.toLowerCase();
+
+  if (desc.includes('thunderstorm')) return <Zap className="w-6 h-6 text-purple-500" />;
+  if (desc.includes('drizzle')) return <CloudDrizzle className="w-6 h-6 text-blue-400" />;
+  if (desc.includes('rain')) return <CloudRain className="w-6 h-6 text-blue-500" />;
+  if (desc.includes('snow')) return <Snowflake className="w-6 h-6 text-gray-300" />;
+  if (desc.includes('tornado')) return <Tornado className="w-6 h-6 text-gray-700" />;
+  if (
+    desc.includes('mist') ||
+    desc.includes('fog') ||
+    desc.includes('smoke') ||
+    desc.includes('haze') ||
+    desc.includes('dust') ||
+    desc.includes('ash') ||
+    desc.includes('squall')
+  )
+    return <CloudFog className="w-6 h-6 text-gray-400" />;
+  if (
+    desc.includes('clear') &&
+    !desc.includes('cloud')
+  )
+    return <Sun className="w-6 h-6 text-yellow-500" />;
+  if (desc.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />;
+
+  // Default icon for unclassified weather
+  return <Wind className="w-6 h-6 text-gray-500" />;
+};
 
 const formatTemperature = (temp: number): string => {
   const roundedTemp = Math.round(temp)

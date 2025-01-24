@@ -9,7 +9,7 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { translateCityName, translateWeatherDescription, translate } from '@/lib/weatherUtils'
 import { getCityCoordinates } from '@/lib/locationUtils'
 import { preloadedCities } from '@/lib/preloadedCities'
-import { Cloud, Sun, CloudRain, CloudSnow, CloudFog, Thermometer, Droplets, Wind } from 'lucide-react'
+import { Cloud, Sun, CloudRain, CloudFog, Thermometer, Droplets, Wind, Snowflake, Zap, CloudDrizzle, Tornado } from 'lucide-react'
 import cityTranslations from '@/app/data/cityTranslations.json'
 import cityTranslationsEn from '@/app/data/cityTranslationsEn.json'
 import cityTranslationsRu from '@/app/data/cityTranslationsRu.json'
@@ -70,14 +70,37 @@ interface WeatherData {
   }
 }
 
-const getWeatherIcon = (description: string) => {
-  const desc = description.toLowerCase()
-  if (desc.includes('rain')) return <CloudRain className="w-6 h-6 text-blue-500" />
-  if (desc.includes('snow')) return <CloudSnow className="w-6 h-6 text-gray-300" />
-  if (desc.includes('fog') || desc.includes('mist')) return <CloudFog className="w-6 h-6 text-gray-400" />
-  if (desc.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />
-  return <Sun className="w-6 h-6 text-yellow-500" />
-}
+
+
+const getWeatherIcon = (description:string) => {
+  const desc = description.toLowerCase();
+
+  if (desc.includes('thunderstorm')) return <Zap className="w-6 h-6 text-purple-500" />;
+  if (desc.includes('drizzle')) return <CloudDrizzle className="w-6 h-6 text-blue-400" />;
+  if (desc.includes('rain')) return <CloudRain className="w-6 h-6 text-blue-500" />;
+  if (desc.includes('snow')) return <Snowflake className="w-6 h-6 text-gray-300" />;
+  if (desc.includes('tornado')) return <Tornado className="w-6 h-6 text-gray-700" />;
+  if (
+    desc.includes('mist') ||
+    desc.includes('fog') ||
+    desc.includes('smoke') ||
+    desc.includes('haze') ||
+    desc.includes('dust') ||
+    desc.includes('ash') ||
+    desc.includes('squall')
+  )
+    return <CloudFog className="w-6 h-6 text-gray-400" />;
+  if (
+    desc.includes('clear') &&
+    !desc.includes('cloud')
+  )
+    return <Sun className="w-6 h-6 text-yellow-500" />;
+  if (desc.includes('cloud')) return <Cloud className="w-6 h-6 text-gray-500" />;
+
+  // Default icon for unclassified weather
+  return <Wind className="w-6 h-6 text-gray-500" />;
+};
+
 
 const formatTemperature = (temp: number): string => {
   const roundedTemp = Math.round(temp)
