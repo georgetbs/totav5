@@ -4,7 +4,7 @@
       "news": "Новости",
       "weather": "Погода",
       "exchange": "Обмен валют",
-      "services": "Сервисы"
+      "services": "Услуги"
     },
     "footer": {
       "rights": "Все права защищены",
@@ -23,7 +23,8 @@
     "currency": "Валюта",
     "rate": "Курс",
     "change": "Изменение",
-    "date": "Дата"
+    "date": "Дата",
+    "lastUpdated": "Последнее обновление"
   },
   "services": {
     "title": "Услуги",

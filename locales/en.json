@@ -10,7 +10,7 @@
       "rights": "All rights reserved",
       "links": {
         "github": "GitHub",
-        "twitter": "X.com"
+        "twitter": "Twitter"
       }
     },
     "retry": "Try Again"
@@ -23,7 +23,8 @@
     "currency": "Currency",
     "rate": "Rate",
     "change": "Change",
-    "date": "Date"
+    "date": "Date",
+    "lastUpdated": "Last Updated"
   },
   "services": {
     "title": "Services",
