@@ -47,7 +47,7 @@ export function getLocaleFromPathname(pathname: string): string {
 export function formatDate(date: Date, locale: string): string {
   return date.toLocaleDateString(locale, {
     year: 'numeric',
-    month: 'long',
+    month: 'numeric',
     day: 'numeric',
   })
 }
