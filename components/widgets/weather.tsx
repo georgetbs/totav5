@@ -181,7 +181,7 @@ export function WeatherWidget() {
   }
 
   return (
-    <Card className="border text-card-foreground cursor-pointer" onClick={() => router.push(`/${locale}/weather-details`)}>
+    <Card className="border cursor-pointer" onClick={() => router.push(`/${locale}/weather-details`)}>
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Thermometer className="h-5 w-5 text-primary" />

@@ -99,7 +99,7 @@ export function ExchangeWidget() {
   }
 
   return (
-    <Card className='border text-card-foreground'>
+    <Card className='border'>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <DollarSign className="h-5 w-5 text-primary" />
