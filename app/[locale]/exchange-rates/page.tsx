@@ -8,6 +8,25 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { DollarSign, RefreshCw, ArrowUp, ArrowDown } from "lucide-react"
 
+const translateMonthToGeorgian = (month: string): string => {
+  const monthTranslations: { [key: string]: string } = {
+    January: "იანვარი",
+    February: "თებერვალი",
+    March: "მარტი",
+    April: "აპრილი",
+    May: "მაისი",
+    June: "ივნისი",
+    July: "ივლისი",
+    August: "აგვისტო",
+    September: "სექტემბერი",
+    October: "ოქტომბერი",
+    November: "ნოემბერი",
+    December: "დეკემბერი",
+  }
+
+  return monthTranslations[month] || month
+}
+
 interface Currency {
   code: string
   quantity: number
@@ -57,7 +76,7 @@ export default function ExchangeRatesPage() {
   if (error) {
     return (
       <div className="container mx-auto py-8">
-        <Card>
+        <Card className="border-0">
           <CardContent className="pt-6">
             <div className="flex items-center justify-center text-destructive">
               <span>{error}</span>
@@ -70,7 +89,7 @@ export default function ExchangeRatesPage() {
 
   return (
     <div className="container mx-auto py-8">
-      <Card>
+      <Card className="border-0">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <DollarSign className="h-6 w-6 text-primary" />
@@ -87,20 +106,21 @@ export default function ExchangeRatesPage() {
             <>
               {lastUpdated && (
                 <div className="mb-4 text-sm text-muted-foreground">
-                  {translate("exchange.lastUpdated" as any, locale)}: {formatDate(new Date(lastUpdated), locale)}
+                  {translate("exchange.lastUpdated" as any, locale)}:{" "}
+                  {lastUpdated && formatDate(new Date(lastUpdated), locale)}
                 </div>
               )}
               <Table>
                 <TableHeader>
-                  <TableRow>
+                  <TableRow className="border-b">
                     <TableHead>{translate("exchange.currency", locale)}</TableHead>
                     <TableHead>{translate("exchange.rate", locale)}</TableHead>
                     <TableHead>{translate("exchange.change", locale)}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {rates.map((rate) => (
-                    <TableRow key={rate.code}>
+                  {rates.map((rate, index) => (
+                    <TableRow key={rate.code} className={index !== rates.length - 1 ? "border-b" : ""}>
                       <TableCell>
                         <div className="flex items-center gap-2">
                           <Avatar className="h-6 w-6">
