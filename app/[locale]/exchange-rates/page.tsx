@@ -106,8 +106,7 @@ export default function ExchangeRatesPage() {
             <>
               {lastUpdated && (
                 <div className="mb-4 text-sm text-muted-foreground">
-                  {translate("exchange.lastUpdated" as any, locale)}:{" "}
-                  {lastUpdated && formatDate(new Date(lastUpdated), locale)}
+                  {translate("exchange.lastUpdated" as any, locale)}: {formatDate(lastUpdated, locale)}
                 </div>
               )}
               <Table>
