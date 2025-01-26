@@ -149,7 +149,7 @@ export function WeatherWidget() {
 
   if (error) {
     return (
-      <Card>
+      <Card className='border'>
         <CardContent className="pt-6">
           <div className="flex flex-col items-center justify-center text-destructive">
             <AlertTriangle className="h-8 w-8 mb-2" />
