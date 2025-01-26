@@ -149,7 +149,7 @@ export function WeatherWidget() {
 
   if (error) {
     return (
-      <Card className='border'>
+      <Card>
         <CardContent className="pt-6">
           <div className="flex flex-col items-center justify-center text-destructive">
             <AlertTriangle className="h-8 w-8 mb-2" />
@@ -181,7 +181,7 @@ export function WeatherWidget() {
   }
 
   return (
-    <Card className="cursor-pointer" onClick={() => router.push(`/${locale}/weather-details`)}>
+    <Card className="border cursor-pointer" onClick={() => router.push(`/${locale}/weather-details`)}>
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="flex items-center gap-2">
           <Thermometer className="h-5 w-5 text-primary" />
