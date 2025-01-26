@@ -24,7 +24,13 @@
     "rate": "Rate",
     "change": "Change",
     "date": "Date",
-    "lastUpdated": "Last Updated"
+    "lastUpdated": "Last Updated",
+    "calculator": "Currency Calculator",
+    "amount": "Amount",
+    "from": "From",
+    "to": "To",
+    "selectCurrency": "Select currency",
+    "search": "Search"
   },
   "services": {
     "title": "Services",
@@ -35,7 +41,13 @@
     },
     "exchange": {
       "title": "Exchange Rates",
-      "description": "View current exchange rates from NBG"
+      "description": "View current exchange rates from NBG",
+      "calculator": "Currency Calculator",
+      "amount": "Amount",
+      "from": "From",
+      "to": "To",
+      "selectCurrency": "Select currency",
+      "search": "Search"
     },
     "categories": {
       "tv_channels": "TV Channels",

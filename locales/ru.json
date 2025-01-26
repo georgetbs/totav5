@@ -24,7 +24,13 @@
     "rate": "Курс",
     "change": "Изменение",
     "date": "Дата",
-    "lastUpdated": "Последнее обновление"
+    "lastUpdated": "Последнее обновление",
+    "calculator": "Калькулятор валют",
+    "amount": "Сумма",
+    "from": "Из",
+    "to": "В",
+    "selectCurrency": "Выберите валюту",
+    "search": "Поиск"
   },
   "services": {
     "title": "Сервисы",
@@ -35,7 +41,13 @@
     },
     "exchange": {
       "title": "Курсы валют",
-      "description": "Просмотр текущих курсов валют от НБГ"
+      "description": "Просмотр текущих курсов валют от НБГ",
+      "calculator": "Калькулятор валют",
+      "amount": "Сумма",
+      "from": "Из",
+      "to": "В",
+      "selectCurrency": "Выберите валюту",
+      "search": "Поиск"
     },
     "categories": {
       "tv_channels": "Телеканалы",

@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
 import { DollarSign, RefreshCw, ArrowUp, ArrowDown } from "lucide-react"
+import { CurrencyCalculator } from "@/components/currency-calculator"
 
 interface Currency {
   code: string
@@ -57,7 +58,7 @@ export default function ExchangeRatesPage() {
   if (error) {
     return (
       <div className="container mx-auto py-8">
-        <Card>
+        <Card className="border-0">
           <CardContent className="pt-6">
             <div className="flex items-center justify-center text-destructive">
               <span>{error}</span>
@@ -70,7 +71,19 @@ export default function ExchangeRatesPage() {
 
   return (
     <div className="container mx-auto py-8">
-      <Card>
+      <Card className="border-0 mb-8">
+        <CardHeader>
+          <CardTitle className="flex items-center gap-2">
+            <DollarSign className="h-6 w-6 text-primary" />
+            {translate("exchange.calculator", locale)}
+          </CardTitle>
+        </CardHeader>
+        <CardContent>
+          <CurrencyCalculator rates={rates} />
+        </CardContent>
+      </Card>
+
+      <Card className="border-0">
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
             <DollarSign className="h-6 w-6 text-primary" />
@@ -87,20 +100,20 @@ export default function ExchangeRatesPage() {
             <>
               {lastUpdated && (
                 <div className="mb-4 text-sm text-muted-foreground">
-                  {translate("exchange.lastUpdated" as any, locale)}: {formatDate(new Date(lastUpdated), locale)}
+                  {translate("exchange.lastUpdated", locale)}: {formatDate(new Date(lastUpdated), locale)}
                 </div>
               )}
               <Table>
                 <TableHeader>
-                  <TableRow>
+                  <TableRow className="border-b">
                     <TableHead>{translate("exchange.currency", locale)}</TableHead>
                     <TableHead>{translate("exchange.rate", locale)}</TableHead>
                     <TableHead>{translate("exchange.change", locale)}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
-                  {rates.map((rate) => (
-                    <TableRow key={rate.code}>
+                  {rates.map((rate, index) => (
+                    <TableRow key={rate.code} className={index !== rates.length - 1 ? "border-b" : ""}>
                       <TableCell>
                         <div className="flex items-center gap-2">
                           <Avatar className="h-6 w-6">

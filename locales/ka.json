@@ -24,7 +24,13 @@
     "rate": "კურსი",
     "change": "ცვლილება",
     "date": "თარიღი",
-    "lastUpdated": "ბოლო განახლება"
+    "lastUpdated": "ბოლო განახლება",
+    "calculator": "ვალუტის კალკულატორი",
+    "amount": "რაოდენობა",
+    "from": "საიდან",
+    "to": "სად",
+    "selectCurrency": "აირჩიეთ ვალუტა",
+    "search": "ძებნა"
   },
   "services": {
     "title": "სერვისები",
@@ -35,7 +41,13 @@
     },
     "exchange": {
       "title": "ვალუტის კურსები",
-      "description": "ნახეთ მიმდინარე ვალუტის კურსები NBG-დან"
+      "description": "ნახეთ მიმდინარე ვალუტის კურსები NBG-დან",
+      "calculator": "ვალუტის კალკულატორი",
+      "amount": "რაოდენობა",
+      "from": "საიდან",
+      "to": "სად",
+      "selectCurrency": "აირჩიეთ ვალუტა",
+      "search": "ძებნა"
     },
     "categories": {
       "tv_channels": "სატელევიზიო არხები",
