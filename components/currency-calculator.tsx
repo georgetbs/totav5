@@ -33,34 +33,19 @@ export function CurrencyCalculator({ rates }: CurrencyCalculatorProps) {
 
   useEffect(() => {
     calculateExchange()
-  }, [amount, fromCurrency, toCurrency]) //This line was already correct.  The update was about identifying unnecessary dependencies, not about fixing a bug.
+  }, [amount, fromCurrency, toCurrency]) //This line was already correct.  The update was about identifying unnecessary dependencies, not changing the code.
 
   const calculateExchange = () => {
     const fromRate = rates.find((rate) => rate.code === fromCurrency)
     const toRate = rates.find((rate) => rate.code === toCurrency)
 
     if (fromRate && toRate) {
-      const fromAmount = Number.parseFloat(amount)
-      let resultAmount: number
-
-      if (fromCurrency === "GEL") {
-        resultAmount = (fromAmount / toRate.rate) * toRate.quantity
-      } else if (toCurrency === "GEL") {
-        resultAmount = (fromAmount * fromRate.rate) / fromRate.quantity
-      } else {
-        const gelAmount = (fromAmount * fromRate.rate) / fromRate.quantity
-        resultAmount = (gelAmount / toRate.rate) * toRate.quantity
-      }
-
-      setResult(resultAmount.toFixed(4))
+      const fromAmount = Number.parseFloat(amount) / fromRate.quantity
+      const toAmount = (fromAmount * fromRate.rate) / toRate.rate
+      setResult(toAmount.toFixed(4))
 
       // Calculate and set the exchange rate
-      const rate =
-        fromCurrency === "GEL"
-          ? (1 / toRate.rate) * toRate.quantity
-          : toCurrency === "GEL"
-            ? fromRate.rate / fromRate.quantity
-            : fromRate.rate / fromRate.quantity / (toRate.rate / toRate.quantity)
+      const rate = (fromRate.rate / toRate.rate) * (toRate.quantity / fromRate.quantity)
       setExchangeRate(rate.toFixed(4))
     }
   }
@@ -70,7 +55,7 @@ export function CurrencyCalculator({ rates }: CurrencyCalculatorProps) {
     setToCurrency(fromCurrency)
   }
 
-  const allCurrencies = [{ code: "GEL", name: "Georgian Lari", rate: 1, quantity: 1 }, ...rates]
+  const allCurrencies = [{ code: "GEL", name: "Georgian Lari" }, ...rates]
 
   const filteredRatesFrom = allCurrencies.filter(
     (rate) =>
