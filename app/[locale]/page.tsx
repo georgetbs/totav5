@@ -9,11 +9,15 @@ export default function HomePage() {
   const { locale } = useI18n()
 
   return (
+    <>
+    <div className='container'><iframe src="https://chat.deepseek.com" width="100%" height="600px"></iframe></div>
     <div className="container py-8 px-4 grid gap-6 grid-cols-1 md:grid-cols-2">
+      
       <WeatherWidget />
       <ExchangeWidget />
       <NewsFeed className="md:col-span-2" />
     </div>
+    </>
   )
 }
 
