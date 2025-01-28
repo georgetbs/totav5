@@ -72,10 +72,10 @@ export default function ExchangeRatesPage() {
     <div className="container mx-auto py-8">
       <Card>
         <CardHeader>
-          <CardTitle className="flex items-center gap-2">
+          <h1><CardTitle className="flex items-center gap-2">
             <DollarSign className="h-6 w-6 text-primary" />
             {translate("exchange.allRatesTitle", locale)}
-          </CardTitle>
+          </CardTitle></h1>
         </CardHeader>
         <CardContent>
           {isLoading ? (

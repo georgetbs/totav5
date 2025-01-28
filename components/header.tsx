@@ -55,7 +55,9 @@ export function Header() {
             <span className="font-bold text-primary">{siteConfig.name}</span>
           </Link>
           <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <NavItems />
+            <h1>
+              <NavItems />
+            </h1>
           </nav>
         </div>
         <div className="flex items-center space-x-2">

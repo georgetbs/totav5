@@ -315,7 +315,7 @@ export default function WeatherDetailsPage() {
     <div className="container mx-auto p-4">
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle>{translateCity(city, locale)}</CardTitle>
+          <CardTitle><h1>{translateCity(city, locale)}</h1></CardTitle>
           <Button onClick={() => router.push(`/${locale}/change-city`)}>
             {translate("weather.changeCity", locale)}
           </Button>
@@ -363,7 +363,7 @@ export default function WeatherDetailsPage() {
 
             {/* Hourly Forecast */}
             <div>
-              <CardTitle className="text-2xl mb-4">{translate("weather.hourlyForecast", locale)}</CardTitle>
+              <h1><CardTitle className="text-2xl mb-4">{translate("weather.hourlyForecast", locale)}</CardTitle></h1>
               <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                 {hourlyForecast.map((hour, index) => (
                   <Card key={index} className="text-center">
@@ -384,7 +384,7 @@ export default function WeatherDetailsPage() {
 
             {/* Daily Forecast */}
             <div>
-              <CardTitle className="text-2xl mb-4">{translate("weather.dailyForecast", locale)}</CardTitle>
+              <h1><CardTitle className="text-2xl mb-4">{translate("weather.dailyForecast", locale)}</CardTitle></h1>
               <div className="space-y-2">
                 {dailyForecast.map((day, index) => (
                   <Card key={index}>
