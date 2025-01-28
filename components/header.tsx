@@ -54,11 +54,11 @@ export function Header() {
           <Link href={`/${locale}`} className="mr-6 flex items-center space-x-2">
             <span className="font-bold text-primary">{siteConfig.name}</span>
           </Link>
-          <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
-            <h1>
+         <h1> <nav className="hidden md:flex items-center space-x-6 text-sm font-medium">
+          
               <NavItems />
-            </h1>
-          </nav>
+            
+          </nav></h1>
         </div>
         <div className="flex items-center space-x-2">
           <DropdownMenu>
