@@ -85,14 +85,14 @@ export function NewsFeed({ className }: NewsFeedProps) {
   return (
     <Card className={className}>
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
+        <h1><CardTitle className="flex items-center gap-2">
           <img
             src="https://civil.ge/wp-content/uploads/2021/05/cropped-adapted-no-square-32x32.png"
             alt="Civil.ge"
             className="h-5 w-5"
           />
           Civil.ge
-        </CardTitle>
+        </CardTitle></h1>
       </CardHeader>
       <CardContent>
         {newsState.isLoading ? (
